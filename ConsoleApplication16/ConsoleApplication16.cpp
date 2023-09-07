@@ -11,7 +11,13 @@ class Fraction
 			cout << "Type a numerator of a fraction" << endl;
 			cin >> numerator;
 			cout << "Type a denominator of a fraction" << endl;
-			cin >> denominator;
+			do
+			{
+				cin >> denominator;
+				if (!denominator)
+					cout << "Denominator can`t be 0" << endl;
+			} while (!denominator);
+			
 		}
 		void get_fraction()
 		{
@@ -25,7 +31,6 @@ class Fraction
 		void set_num(int value)
 		{
 			numerator = value;
-
 		}
 		void set_denom(int value)
 		{
@@ -35,7 +40,6 @@ class Fraction
 		int get_num()
 		{
 			return numerator;
-
 		}
 		int get_denom()
 		{
@@ -47,7 +51,6 @@ class Fraction
 				rez.denominator = denominator*b.denominator;
 				rez.numerator = (numerator * (rez.denominator / denominator)) + (b.numerator * (rez.denominator / b.denominator));
 				return rez;
-			
 		}
 		Fraction substraction(Fraction b)
 		{
@@ -88,6 +91,7 @@ class Fraction
 int main()
 {
 	Fraction a, b;
+	a.init();
 	a.set_num(5);
 	a.set_denom(10);
 	b.set_num(3);
